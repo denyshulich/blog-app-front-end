@@ -1,8 +1,8 @@
 <template>
     <div>
-        <nuxt-link class="none-decoration" to="/">
+        <NuxtLink class="none-decoration" to="/">
             <h2 class="title">{{ title }}</h2>
-        </nuxt-link>
+        </NuxtLink>
 
         <p class="text">{{ textLenght }}</p>
     </div>
@@ -10,6 +10,7 @@
 
 <script>
 export default {
+    name: 'PostCardTitle',
     props: {
         title: {
             type: String,
@@ -45,6 +46,11 @@ export default {
         margin: get-t-vw(14px) 0;
         font-size: get-t-vw(28px);
     }
+
+    @include mediaSize(desktop) {
+        margin: get-vw(14px) 0;
+        font-size: get-vw(28px);
+    }
 }
 
 .text {
@@ -55,6 +61,11 @@ export default {
     @include mediaSize(tablet) {
         padding-bottom: get-t-vw(28px);
         font-size: get-t-vw(18px);
+    }
+
+    @include mediaSize(desktop) {
+        padding-bottom: get-vw(28px);
+        font-size: get-vw(18px);
     }
 }
 </style>

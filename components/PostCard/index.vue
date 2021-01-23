@@ -1,20 +1,23 @@
 <template>
     <div class="layout">
         <div class="container">
-            <div>
-                <post-card-image-carusel
+            <div v-if="videoTumbler">
+                <PostCardVideo :video="posts.video"></PostCardVideo>
+            </div>
+            <div v-else>
+                <PostCardImageCarousel
                     v-if="imageTumbler"
                     :image="posts.img"
-                ></post-card-image-carusel>
+                ></PostCardImageCarousel>
                 <post-card-image v-else :image="posts.img"></post-card-image>
             </div>
             <div class="wraper">
-                <post-card-subtitle :avtor="posts.avtor" :date="posts.date"></post-card-subtitle>
-                <post-card-title :title="posts.title" :text="posts.text"></post-card-title>
-                <post-card-buttom
+                <PostCardSubtitle :avtor="posts.avtor" :date="posts.date"></PostCardSubtitle>
+                <PostCardTitle :title="posts.title" :text="posts.text"></PostCardTitle>
+                <PostCardButtom
                     :categories="posts.categories"
                     :comments="posts.comments"
-                ></post-card-buttom>
+                ></PostCardButtom>
             </div>
         </div>
     </div>
@@ -23,17 +26,19 @@
 <script>
 import PostCardButtom from './PostCardButtom.vue';
 import PostCardImage from './PostCardImage.vue';
-import PostCardImageCarusel from './PostCardImageCarusel.vue';
+import PostCardImageCarousel from './PostCardImageCarousel.vue';
 import PostCardSubtitle from './PostCardSubtitle';
 import PostCardTitle from './PostCardTitle.vue';
+import PostCardVideo from './PostCardVideo.vue';
 
 export default {
     components: {
         PostCardImage,
         PostCardSubtitle,
-        PostCardImageCarusel,
+        PostCardImageCarousel,
         PostCardTitle,
-        PostCardButtom
+        PostCardButtom,
+        PostCardVideo
     },
     props: {
         posts: {
@@ -44,6 +49,14 @@ export default {
     computed: {
         imageTumbler() {
             if (Array.isArray(this.posts.img)) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+
+        videoTumbler() {
+            if (this.posts.video.length !== 0 || this.posts.video === undefined) {
                 return true;
             } else {
                 return false;
@@ -61,6 +74,10 @@ export default {
     @include mediaSize(tablet) {
         padding: get-t-vw(15px) 0;
     }
+
+    @include mediaSize(desktop) {
+        padding: get-vw(15px) 0;
+    }
 }
 
 .wraper {
@@ -69,18 +86,27 @@ export default {
     @include mediaSize(tablet) {
         padding: get-t-vw(32px) get-t-vw(38px) 0 get-t-vw(38px);
     }
+
+    @include mediaSize(desktop) {
+        padding: get-vw(32px) get-vw(38px) 0 get-vw(38px);
+    }
 }
 
 .container {
     position: relative;
-    width: get-m-vw(294px);
+    top: 0;
+    width: get-m-vw(330px);
     height: max-content;
     margin: auto;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
     transition: top 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
 
     @include mediaSize(tablet) {
-        width: get-t-vw(340px);
+        width: get-t-vw(300px);
+    }
+
+    @include mediaSize(desktop) {
+        width: get-vw(400px);
     }
 
     &:hover {

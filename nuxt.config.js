@@ -12,14 +12,9 @@ export default {
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: ['normalize.css/normalize.css', 'vue-slick-carousel/dist/vue-slick-carousel.css'],
+    css: ['normalize.css/normalize.css'],
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [
-        //   '~/plugins/load-script.js'
-        // https: //github.com/crowdbotics/v-img
-        '@/plugins/v-image.js',
-        { src: './plugins/vue-slick-carousel.js' }
-    ],
+    plugins: [{ src: './plugins/load-script.js', ssr: false }],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     // components: true,

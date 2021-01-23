@@ -1,13 +1,14 @@
 <template>
     <div class="subtitle">
-        <nuxt-link class="post__avtor" to="/">By {{ avtor }} </nuxt-link>
+        <NuxtLink class="post__avtor" to="/">By {{ avtor }} </NuxtLink>
 
-        <nuxt-link class="post__data" to="/"> {{ date }} </nuxt-link>
+        <NuxtLink class="post__data" to="/"> {{ date }} </NuxtLink>
     </div>
 </template>
 
 <script>
 export default {
+    name: 'PostCardSubtitle',
     props: {
         date: {
             type: String,
@@ -27,6 +28,10 @@ export default {
 
     @include mediaSize(tablet) {
         font-size: get-t-vw(17px);
+    }
+
+    @include mediaSize(desktop) {
+        font-size: get-vw(17px);
     }
 }
 
@@ -50,6 +55,10 @@ export default {
 
     @include mediaSize(tablet) {
         padding-left: get-t-vw(10px);
+    }
+
+    @include mediaSize(desktop) {
+        padding-left: get-vw(10px);
     }
 }
 </style>
