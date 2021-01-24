@@ -18,6 +18,7 @@
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+
 export default {
     name: 'PostCardImageCarousel',
     components: { VueSlickCarousel },
@@ -86,6 +87,10 @@ export default {
             bottom: 10%;
             display: block;
 
+            li {
+                margin: 0 1%;
+            }
+
             li button::before,
             li.slick-active button::before {
                 color: transparent;
@@ -99,6 +104,7 @@ export default {
                 background-color: transparent;
                 border: 4px solid #fff;
                 border-radius: 50%;
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
 
                 @include mediaSize(tablet) {
                     width: get-t-vw(10px);
@@ -199,20 +205,19 @@ export default {
 .img-wrapper img {
     object-fit: cover;
     width: get-m-vw(330px);
-    height: max-content;
-    max-height: get-m-vw(300px);
+    height: get-m-vw(300px);
     object-position: center;
     margin: auto;
     background-image: linear-gradient(gray 100%, transparent 0);
 
     @include mediaSize(tablet) {
         width: get-t-vw(300px);
-        max-height: get-t-vw(300px);
+        height: get-t-vw(300px);
     }
 
     @include mediaSize(desktop) {
         width: get-vw(400px);
-        max-height: get-vw(300px);
+        height: get-vw(300px);
     }
 }
 </style>

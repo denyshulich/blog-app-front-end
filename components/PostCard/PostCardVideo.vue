@@ -1,5 +1,5 @@
 <template>
-    <div class="video-player"><div id="player"></div></div>
+    <div class="post-card__video-player"><div id="player"></div></div>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
     },
     methods: {
         getVideoId() {
-            this.videoId = this.video[0].split('=')[1];
+            this.videoId = this.video.split('=')[1];
         },
 
         addPlayerVideo() {
@@ -48,20 +48,19 @@ export default {
 </script>
 
 <style lang="scss">
-.video-player {
+.post-card__video-player {
     position: relative;
     width: 100%;
-    max-height: get-m-vw(300px);
     overflow: hidden;
 }
 
-.video-player::after {
+.post-card__video-player::after {
     display: block;
     padding-top: 56.25%;
     content: '';
 }
 
-.video-player iframe {
+.post-card__video-player iframe {
     position: absolute;
     top: 0;
     left: 0;

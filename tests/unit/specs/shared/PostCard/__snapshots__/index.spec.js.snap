@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostCard render post card with image 1`] = `
+<div
+  class="layout"
+>
+  <div
+    class="container"
+  >
+    <div>
+      <post-card-image-stub
+        image=""
+      />
+    </div>
+     
+    <div
+      class="wraper"
+    >
+      <postcardsubtitle-stub
+        avtor=""
+        date=""
+      />
+       
+      <postcardtitle-stub
+        text=""
+        title=""
+      />
+       
+      <postcardbuttom-stub
+        categories=""
+        comments="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostCard render post card with slider 1`] = `
+<div
+  class="layout"
+>
+  <div
+    class="container"
+  >
+    <div>
+      <postcardimagecarousel-stub
+        image=","
+      />
+    </div>
+     
+    <div
+      class="wraper"
+    >
+      <postcardsubtitle-stub
+        avtor=""
+        date=""
+      />
+       
+      <postcardtitle-stub
+        text=""
+        title=""
+      />
+       
+      <postcardbuttom-stub
+        categories=""
+        comments="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostCard render post card with slider 2`] = `
+<div
+  class="layout"
+>
+  <div
+    class="container"
+  >
+    <div>
+      <postcardvideo-stub
+        video=""
+      />
+    </div>
+     
+    <div
+      class="wraper"
+    >
+      <postcardsubtitle-stub
+        avtor=""
+        date=""
+      />
+       
+      <postcardtitle-stub
+        text=""
+        title=""
+      />
+       
+      <postcardbuttom-stub
+        categories=""
+        comments="0"
+      />
+    </div>
+  </div>
+</div>
+`;

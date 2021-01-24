@@ -35,19 +35,21 @@ export default {
 <style lang="scss" scoped>
 .category-container {
     position: relative;
-    padding: auto 0;
+    padding: get-m-vw(20px) 0;
     padding-left: get-m-vw(38px);
     margin-right: get-m-vw(92px);
     margin-left: get-m-vw(-38px);
     border-top: $border;
 
     @include mediaSize(tablet) {
+        padding: get-t-vw(20px) 0;
         padding-left: get-t-vw(38px);
         margin-right: get-t-vw(92px);
         margin-left: get-t-vw(-38px);
     }
 
     @include mediaSize(desktop) {
+        padding: get-vw(20px) 0;
         padding-left: get-vw(38px);
         margin-right: get-vw(92px);
         margin-left: get-vw(-38px);
@@ -59,11 +61,11 @@ export default {
     color: $colorGrey;
 
     @include mediaSize(tablet) {
-        font-size: get-t-vw(13px);
+        font-size: get-t-vw(15px);
     }
 
     @include mediaSize(desktop) {
-        font-size: get-vw(13px);
+        font-size: get-vw(15px);
     }
 
     &:hover {

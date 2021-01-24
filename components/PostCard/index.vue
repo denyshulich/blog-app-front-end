@@ -1,5 +1,6 @@
 <template>
     <div class="layout">
+        <!-- FIXME: Компоненты без контента должны быть самозакрывающимися -->
         <div class="container">
             <div v-if="videoTumbler">
                 <PostCardVideo :video="posts.video"></PostCardVideo>
@@ -48,7 +49,7 @@ export default {
     },
     computed: {
         imageTumbler() {
-            if (Array.isArray(this.posts.img)) {
+            if (Array.isArray(this.posts.img) && this.posts.img.length > 1) {
                 return true;
             } else {
                 return false;
@@ -56,7 +57,7 @@ export default {
         },
 
         videoTumbler() {
-            if (this.posts.video.length !== 0 || this.posts.video === undefined) {
+            if (this.posts.video !== undefined) {
                 return true;
             } else {
                 return false;

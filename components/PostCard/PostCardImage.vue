@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-if="$device.isMobile" class="post__meta-tumb">
-            <img :src="image" class="post__one-image" />
+        <div v-if="$device.isMobileOrTablet" class="post__meta-tumb">
+            <img :src="image || image[0]" class="post__one-image" />
             <div class="overlay">
                 <div class="overlay__link link-url">
                     <NuxtLink to="/" class="link-item__container">
@@ -9,21 +9,29 @@
                     </NuxtLink>
                 </div>
                 <div class="overlay__link link-loupe">
-                    <NuxtLink v-img="{ src: `${image}` }" to="/" class="link-item__container">
+                    <NuxtLink
+                        v-img="{ src: `${image || image[0]}` }"
+                        to="/"
+                        class="link-item__container"
+                    >
                         <SvgIcon name="loupe" class="post__icon" />
                     </NuxtLink>
                 </div>
             </div>
         </div>
-        <div v-if="$device.isDesktopOrTablet" class="post__meta-tumb">
-            <img :src="image" class="post__one-image" />
+        <div v-if="$device.isDesktop" class="post__meta-tumb">
+            <img :src="image || image[0]" class="post__one-image" />
             <div class="overlay">
                 <NuxtLink to="/" class="overlay__link link-url">
                     <div class="link-item__container">
                         <SvgIcon name="url" class="post__icon" />
                     </div>
                 </NuxtLink>
-                <NuxtLink v-img="{ src: `${image}` }" to="/" class="overlay__link link-loupe">
+                <NuxtLink
+                    v-img="{ src: `${image || image[0]}` }"
+                    to="/"
+                    class="overlay__link link-loupe"
+                >
                     <div class="link-item__container">
                         <SvgIcon name="loupe" class="post__icon" />
                     </div>
@@ -48,7 +56,7 @@ export default {
     name: 'PostCardImage',
     props: {
         image: {
-            type: String,
+            type: [String, Array],
             required: true
         }
     }
@@ -96,7 +104,7 @@ export default {
         }
 
         .post__one-image {
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
     }
 }
@@ -145,7 +153,7 @@ export default {
                 }
             }
 
-            @include mediaSize(tablet) {
+            @include mediaSize(desktop) {
                 background-color: white;
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
                 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
