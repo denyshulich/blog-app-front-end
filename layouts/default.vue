@@ -2,6 +2,7 @@
     <div>
         <header-v></header-v>
 
+        <!-- FIXME: Main should be contained for each page separately, leave only <Nuxt /> -->
         <main>
             <div class="container">
                 <Nuxt />

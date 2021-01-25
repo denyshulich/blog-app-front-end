@@ -1,5 +1,15 @@
 <template>
     <div class="container">
+        <!-- FIXME: Blocks are inserted on the pages, render as a separate component -->
+        <!-- FIXME: Redo the component structure-->
+        <!--
+            - post card it's shared component card should be in the shared folder
+            - header it's layout element should be in the layout folder
+            - Masonry grid it's renderless component move it ot renderless folder
+            - Base components should have the base prefix, and remove the blue from the button, it should just be BaseButton
+            - All components must be in CamelCase
+            - Elements without content are self-closing
+         -->
         <MasonryGrid :options="macyOptions">
             <div id="catalogMasonryGrid">
                 <PostCard v-for="post of posts" :key="post.date" :posts="post" />
