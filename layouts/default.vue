@@ -1,21 +1,16 @@
 <template>
     <div>
-        <header-v></header-v>
-
-        <main>
-            <div class="container">
-                <Nuxt />
-            </div>
-        </main>
+        <Header />
+        <Nuxt />
     </div>
 </template>
 
 <script>
-import headerV from '../components/header';
+import Header from '../layouts/header';
 
 export default {
     components: {
-        headerV
+        Header
     }
 };
 </script>

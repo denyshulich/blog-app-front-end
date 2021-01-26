@@ -1,16 +1,21 @@
 <template>
-    <div class="container">
-        <MasonryGrid :options="macyOptions">
-            <div id="catalogMasonryGrid">
-                <PostCard v-for="post of posts" :key="post.date" :posts="post" />
-            </div>
-        </MasonryGrid>
+    <div>
+        <div v-if="$device.isMobile" class="container">
+            <PostCard v-for="post of posts" :key="post.date" :posts="post" />
+        </div>
+        <div v-else class="container">
+            <MasonryGrid :options="macyOptions">
+                <div id="catalogMasonryGrid">
+                    <PostCard v-for="post of posts" :key="post.date" :posts="post" />
+                </div>
+            </MasonryGrid>
+        </div>
     </div>
 </template>
 
 <script>
-import PostCard from '../components/PostCard';
-import MasonryGrid from '~/components/base/MasonryGrid.vue';
+import PostCard from '~/components/shared/PostCard';
+import MasonryGrid from '~/components/renderless/MasonryGrid';
 export default {
     name: 'Home',
     components: {
@@ -22,7 +27,7 @@ export default {
             posts: [
                 {
                     img: 'https://picsum.photos/id/10/1000/750',
-                    avtor: 'Zenia',
+                    author: 'Zenia',
                     date: 'Novemder, 23 2021',
                     title: 'Movielike photo shoot – B&W',
                     text:
@@ -36,7 +41,7 @@ export default {
                         'https://picsum.photos/id/57/1000/750',
                         'https://picsum.photos/id/58/1000/750'
                     ],
-                    avtor: 'Denis',
+                    author: 'Denis',
                     date: 'Novemder, 23 2021',
                     title: 'Craftsmen at work',
                     text:
@@ -50,7 +55,7 @@ export default {
                         'https://picsum.photos/id/57/1000/750',
                         'https://picsum.photos/id/58/1000/750'
                     ],
-                    avtor: 'Vova',
+                    author: 'Vova',
                     date: 'Novemder, 25 2021',
                     title: 'Craftsmen at work',
                     text:
@@ -65,7 +70,7 @@ export default {
                         'https://picsum.photos/id/547/1000/750',
                         'https://picsum.photos/id/548/1000/750'
                     ],
-                    avtor: 'Denis',
+                    author: 'Denis',
                     date: 'Novemder, 23 2021',
                     title: 'Craftsmen at work',
                     text:
@@ -75,7 +80,7 @@ export default {
                 },
                 {
                     img: ['https://picsum.photos/id/56/1000/1050'],
-                    avtor: 'Denis',
+                    author: 'Denis',
                     date: 'Novemder, 23 2021',
                     title: 'Craftsmen at work',
                     text:
