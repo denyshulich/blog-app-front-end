@@ -1,26 +1,21 @@
 <template>
-    <div class="container">
-        <!-- FIXME: Blocks are inserted on the pages, render as a separate component -->
-        <!-- FIXME: Redo the component structure-->
-        <!--
-            - post card it's shared component card should be in the shared folder
-            - header it's layout element should be in the layout folder
-            - Masonry grid it's renderless component move it ot renderless folder
-            - Base components should have the base prefix, and remove the blue from the button, it should just be BaseButton
-            - All components must be in CamelCase
-            - Elements without content are self-closing
-         -->
-        <MasonryGrid :options="macyOptions">
-            <div id="catalogMasonryGrid">
-                <PostCard v-for="post of posts" :key="post.date" :posts="post" />
-            </div>
-        </MasonryGrid>
+    <div>
+        <div v-if="$device.isMobile" class="container">
+            <PostCard v-for="post of posts" :key="post.date" :posts="post" />
+        </div>
+        <div v-else class="container">
+            <MasonryGrid :options="macyOptions">
+                <div id="catalogMasonryGrid">
+                    <PostCard v-for="post of posts" :key="post.date" :posts="post" />
+                </div>
+            </MasonryGrid>
+        </div>
     </div>
 </template>
 
 <script>
-import PostCard from '../components/PostCard';
-import MasonryGrid from '~/components/base/MasonryGrid.vue';
+import PostCard from '~/components/shared/PostCard';
+import MasonryGrid from '~/components/renderless/MasonryGrid';
 export default {
     name: 'Home',
     components: {
@@ -32,7 +27,7 @@ export default {
             posts: [
                 {
                     img: 'https://picsum.photos/id/10/1000/750',
-                    avtor: 'Zenia',
+                    author: 'Zenia',
                     date: 'Novemder, 23 2021',
                     title: 'Movielike photo shoot – B&W',
                     text:
@@ -46,7 +41,7 @@ export default {
                         'https://picsum.photos/id/57/1000/750',
                         'https://picsum.photos/id/58/1000/750'
                     ],
-                    avtor: 'Denis',
+                    author: 'Denis',
                     date: 'Novemder, 23 2021',
                     title: 'Craftsmen at work',
                     text:
@@ -60,7 +55,7 @@ export default {
                         'https://picsum.photos/id/57/1000/750',
                         'https://picsum.photos/id/58/1000/750'
                     ],
-                    avtor: 'Vova',
+                    author: 'Vova',
                     date: 'Novemder, 25 2021',
                     title: 'Craftsmen at work',
                     text:
@@ -75,7 +70,7 @@ export default {
                         'https://picsum.photos/id/547/1000/750',
                         'https://picsum.photos/id/548/1000/750'
                     ],
-                    avtor: 'Denis',
+                    author: 'Denis',
                     date: 'Novemder, 23 2021',
                     title: 'Craftsmen at work',
                     text:
@@ -85,7 +80,7 @@ export default {
                 },
                 {
                     img: ['https://picsum.photos/id/56/1000/1050'],
-                    avtor: 'Denis',
+                    author: 'Denis',
                     date: 'Novemder, 23 2021',
                     title: 'Craftsmen at work',
                     text:

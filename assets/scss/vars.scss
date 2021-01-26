@@ -11,7 +11,7 @@ $colorGrey: #8d8d8d;
     @font-face {
         font-family: $font-family;
         // src: url('#{$file-path}.eot')
-        src: url('#{$file-path}.woff') format('woff');
+        src: url('#{$file-path}.woff2') format('woff2');
         //  url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
         // url('#{$file-path}.ttf') format('truetype')
         font-weight: $weight;
@@ -19,6 +19,17 @@ $colorGrey: #8d8d8d;
         font-display: swap;
     }
 }
+
+@include font-face('Montserrat', '~assets/fonts/montserrat-v15-latin-regular', 400, normal);
+@include font-face('Montserrat', '~assets/fonts/montserrat-v15-latin-700', 700, bold);
+@include font-face('Raleway', '~assets/fonts/raleway-v18-latin-regular', 400, normal);
+@include font-face('Raleway', '~assets/fonts/raleway-v18-latin-700', 700, bold);
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
 $layout-width: 1920;
 $mobile-width: 375;
 $tablet-width: 760;

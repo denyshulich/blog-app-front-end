@@ -5,20 +5,20 @@
                 {{ ctg.toUpperCase() }}
             </NuxtLink>
         </p>
-        <ButtonBlue class="position-button" url="/">
+        <BaseButton class="position-button" url="/">
             <SvgIcon name="speech-bubble" class="icon-bubble" />
             <div class="comment__number">
                 <span> {{ comments }} </span>
             </div>
-        </ButtonBlue>
+        </BaseButton>
     </div>
 </template>
 
 <script>
-import ButtonBlue from '../base/ButtonBlue.vue';
+import BaseButton from '~/components/base/BaseButton';
 export default {
-    name: 'PostCardButtom',
-    components: { ButtonBlue },
+    name: 'PostCardBottom',
+    components: { BaseButton },
     props: {
         categories: {
             type: Array,
@@ -35,21 +35,22 @@ export default {
 <style lang="scss" scoped>
 .category-container {
     position: relative;
-    padding: get-m-vw(20px) 0;
+    padding: get-m-vw(5px) 0;
     padding-left: get-m-vw(38px);
     margin-right: get-m-vw(92px);
     margin-left: get-m-vw(-38px);
+    font-weight: normal;
     border-top: $border;
 
     @include mediaSize(tablet) {
-        padding: get-t-vw(20px) 0;
+        padding: get-t-vw(5px) 0;
         padding-left: get-t-vw(38px);
         margin-right: get-t-vw(92px);
         margin-left: get-t-vw(-38px);
     }
 
     @include mediaSize(desktop) {
-        padding: get-vw(20px) 0;
+        padding: get-vw(5px) 0;
         padding-left: get-vw(38px);
         margin-right: get-vw(92px);
         margin-left: get-vw(-38px);

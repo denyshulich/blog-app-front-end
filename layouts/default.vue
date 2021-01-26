@@ -1,22 +1,16 @@
 <template>
     <div>
-        <header-v></header-v>
-
-        <!-- FIXME: Main should be contained for each page separately, leave only <Nuxt /> -->
-        <main>
-            <div class="container">
-                <Nuxt />
-            </div>
-        </main>
+        <Header />
+        <Nuxt />
     </div>
 </template>
 
 <script>
-import headerV from '../components/header';
+import Header from '../layouts/header';
 
 export default {
     components: {
-        headerV
+        Header
     }
 };
 </script>

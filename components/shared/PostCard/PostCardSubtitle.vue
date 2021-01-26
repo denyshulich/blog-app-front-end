@@ -1,6 +1,6 @@
 <template>
     <div class="subtitle">
-        <NuxtLink class="post__avtor" to="/">By {{ avtor }} </NuxtLink>
+        <NuxtLink class="post__author" to="/">By {{ author }} </NuxtLink>
 
         <NuxtLink class="post__data" to="/"> {{ date }} </NuxtLink>
     </div>
@@ -14,7 +14,7 @@ export default {
             type: String,
             required: true
         },
-        avtor: {
+        author: {
             type: String,
             required: true
         }
@@ -24,18 +24,19 @@ export default {
 
 <style lang="scss" scoped>
 .subtitle {
-    font-size: get-m-vw(17px);
+    font-size: get-m-vw(13px);
+    font-weight: normal;
 
     @include mediaSize(tablet) {
-        font-size: get-t-vw(17px);
+        font-size: get-t-vw(13px);
     }
 
     @include mediaSize(desktop) {
-        font-size: get-vw(17px);
+        font-size: get-vw(13px);
     }
 }
 
-.post__avtor {
+.post__author {
     display: inline;
     color: $colorGrey;
     text-decoration: none;

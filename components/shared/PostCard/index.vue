@@ -1,36 +1,29 @@
 <template>
     <div class="layout">
-        <!-- FIXME: Компоненты без контента должны быть самозакрывающимися -->
         <div class="container">
             <div v-if="videoTumbler">
-                <PostCardVideo :video="posts.video"></PostCardVideo>
+                <PostCardVideo :video="posts.video" />
             </div>
             <div v-else>
-                <PostCardImageCarousel
-                    v-if="imageTumbler"
-                    :image="posts.img"
-                ></PostCardImageCarousel>
-                <post-card-image v-else :image="posts.img"></post-card-image>
+                <PostCardImageCarousel v-if="imageTumbler" :image="posts.img" />
+                <PostCardImage v-else :image="posts.img" />
             </div>
             <div class="wraper">
-                <PostCardSubtitle :avtor="posts.avtor" :date="posts.date"></PostCardSubtitle>
-                <PostCardTitle :title="posts.title" :text="posts.text"></PostCardTitle>
-                <PostCardButtom
-                    :categories="posts.categories"
-                    :comments="posts.comments"
-                ></PostCardButtom>
+                <PostCardSubtitle :author="posts.author" :date="posts.date" />
+                <PostCardTitle :title="posts.title" :text="posts.text" />
+                <PostCardBottom :categories="posts.categories" :comments="posts.comments" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import PostCardButtom from './PostCardButtom.vue';
-import PostCardImage from './PostCardImage.vue';
-import PostCardImageCarousel from './PostCardImageCarousel.vue';
+import PostCardBottom from './PostCardBottom';
+import PostCardImage from './PostCardImage';
+import PostCardImageCarousel from './PostCardImageCarousel';
 import PostCardSubtitle from './PostCardSubtitle';
-import PostCardTitle from './PostCardTitle.vue';
-import PostCardVideo from './PostCardVideo.vue';
+import PostCardTitle from './PostCardTitle';
+import PostCardVideo from './PostCardVideo';
 
 export default {
     components: {
@@ -38,7 +31,7 @@ export default {
         PostCardSubtitle,
         PostCardImageCarousel,
         PostCardTitle,
-        PostCardButtom,
+        PostCardBottom,
         PostCardVideo
     },
     props: {

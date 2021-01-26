@@ -1,13 +1,14 @@
 <template>
-    <nuxt-link class="button none-decoration" :to="url">
+    <NuxtLink class="button none-decoration" :to="url">
         <div class="btn-content">
             <slot></slot>
         </div>
-    </nuxt-link>
+    </NuxtLink>
 </template>
 
 <script>
 export default {
+    name: 'BaseButton',
     props: {
         url: {
             type: String,
