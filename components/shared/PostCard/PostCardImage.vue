@@ -1,41 +1,23 @@
 <template>
     <div>
-        <div v-if="$device.isMobileOrTablet" class="post__meta-tumb">
+        <div class="post__meta-tumb">
             <img :src="image || image[0]" class="post__one-image" />
             <div class="overlay">
                 <div class="overlay__link link-url">
                     <NuxtLink to="/" class="link-item__container">
                         <SvgIcon name="url" class="post__icon" />
                     </NuxtLink>
+                    <NuxtLink class="link-item__container_desktop" to="/" />
                 </div>
                 <div class="overlay__link link-loupe">
-                    <NuxtLink
+                    <div v-img="{ src: `${image || image[0]}` }" class="link-item__container">
+                        <SvgIcon name="loupe" class="post__icon" />
+                    </div>
+                    <div
                         v-img="{ src: `${image || image[0]}` }"
-                        to="/"
-                        class="link-item__container"
-                    >
-                        <SvgIcon name="loupe" class="post__icon" />
-                    </NuxtLink>
+                        class="link-item__container_desktop"
+                    />
                 </div>
-            </div>
-        </div>
-        <div v-if="$device.isDesktop" class="post__meta-tumb">
-            <img :src="image || image[0]" class="post__one-image" />
-            <div class="overlay">
-                <NuxtLink to="/" class="overlay__link link-url">
-                    <div class="link-item__container">
-                        <SvgIcon name="url" class="post__icon" />
-                    </div>
-                </NuxtLink>
-                <NuxtLink
-                    v-img="{ src: `${image || image[0]}` }"
-                    to="/"
-                    class="overlay__link link-loupe"
-                >
-                    <div class="link-item__container">
-                        <SvgIcon name="loupe" class="post__icon" />
-                    </div>
-                </NuxtLink>
             </div>
         </div>
     </div>
@@ -131,12 +113,27 @@ export default {
 
 .link-url,
 .link-loupe {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
     .post__icon {
         margin: auto;
+    }
+
+    .link-item__container_desktop {
+        display: none;
+
+        @include mediaSize(desktop) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            cursor: pointer;
+        }
     }
 
     &:hover {

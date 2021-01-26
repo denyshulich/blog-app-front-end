@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink class="button none-decoration" :to="url">
+    <NuxtLink class="button" :to="url">
         <div class="btn-content">
             <slot></slot>
         </div>

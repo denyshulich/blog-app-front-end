@@ -2,9 +2,13 @@
 $colorBlue: #47c9e5;
 $border: rgba(grey, 0.4) solid 1px;
 $colorGrey: #8d8d8d;
-.none-decoration {
+
+button,
+a {
     text-decoration: none;
     color: black;
+    border: none;
+    background: none;
 }
 
 @mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
@@ -82,13 +86,13 @@ $tablet-width: 760;
 //использование данного миксина  +mediaSize(sm)
 @mixin mediaSize($media) {
     @if $media == desktop {
-        @media (min-width: 1200px) {
+        @media (min-width: 1020px) {
             @content;
         }
     }
 
     @if $media == tablet {
-        @media (min-width: 760px) {
+        @media (min-width: 550px) {
             @content;
         }
     } @else {

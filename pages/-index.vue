@@ -1,27 +1,12 @@
 <template>
-    <div>
-        <div v-if="$device.isMobile" class="container">
-            <PostCard v-for="post of posts" :key="post.date" :posts="post" />
-        </div>
-        <div v-else class="container">
-            <MasonryGrid :options="macyOptions">
-                <div id="catalogMasonryGrid">
-                    <PostCard v-for="post of posts" :key="post.date" :posts="post" />
-                </div>
-            </MasonryGrid>
-        </div>
-    </div>
+    <div><BlockPostGrid :posts="posts" /></div>
 </template>
 
 <script>
-import PostCard from '~/components/shared/PostCard';
-import MasonryGrid from '~/components/renderless/MasonryGrid';
+import BlockPostGrid from '~/components/blocks/BlockPostGrid';
 export default {
     name: 'Home',
-    components: {
-        PostCard,
-        MasonryGrid
-    },
+    components: { BlockPostGrid },
     data() {
         return {
             posts: [
@@ -88,40 +73,8 @@ export default {
                     categories: ['travel'],
                     comments: 300
                 }
-            ],
-            macyOptions: {
-                container: '#catalogMasonryGrid',
-                trueOrder: true,
-                waitForImages: true,
-                margin: 10,
-                columns: 2,
-                breakAt: {
-                    1200: {
-                        margin: 5
-                    },
-                    750: {
-                        columns: 1,
-                        margin: {
-                            y: 15
-                        }
-                    }
-                }
-            }
+            ]
         };
     }
 };
 </script>
-
-<style lang="scss" scoped>
-.container {
-    margin: 5vw auto;
-
-    @include mediaSize(tablet) {
-        width: 90%;
-    }
-
-    @include mediaSize(desktop) {
-        width: 45%;
-    }
-}
-</style>

@@ -62,7 +62,7 @@ export default {
     color: $colorGrey;
 
     @include mediaSize(tablet) {
-        font-size: get-t-vw(15px);
+        font-size: get-t-vw(12px);
     }
 
     @include mediaSize(desktop) {
@@ -92,7 +92,7 @@ export default {
 .position-button {
     position: absolute;
     top: get-m-vw(-20px);
-    right: get-m-vw(-80px);
+    right: get-m-vw(-100px);
     height: get-m-vw(40px);
     padding: 0 get-m-vw(17px);
     color: $colorGrey;
@@ -101,7 +101,7 @@ export default {
 
     @include mediaSize(tablet) {
         top: get-t-vw(-20px);
-        right: get-t-vw(-80px);
+        right: get-t-vw(-100px);
         height: get-t-vw(40px);
         padding: 0 get-t-vw(17px);
         border-radius: get-t-vw(100px);
@@ -109,7 +109,7 @@ export default {
 
     @include mediaSize(desktop) {
         top: get-vw(-20px);
-        right: get-vw(-80px);
+        right: get-vw(-100px);
         height: get-vw(40px);
         padding: 0 get-vw(17px);
         border-radius: get-vw(100px);
