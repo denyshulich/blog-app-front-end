@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <div v-if="$device.isDesktopOrTablet" class="container">
+    <div class="container">
+        <div v-if="$device.isDesktopOrTablet">
             <MasonryGrid :options="macyOptions">
                 <div id="catalogMasonryGrid">
                     <PostCard v-for="post of posts" :key="post.date" :posts="post" />
                 </div>
             </MasonryGrid>
         </div>
-        <div v-else class="container">
+        <div v-else>
             <PostCard v-for="post of posts" :key="post.date" :posts="post" />
         </div>
     </div>
@@ -55,14 +55,14 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-    margin: 5vw auto;
+    width: get-m-vw(374px);
 
     @include mediaSize(tablet) {
-        width: 90%;
+        width: get-t-vw(700px);
     }
 
     @include mediaSize(desktop) {
-        width: 45%;
+        width: get-vw(850px);
     }
 }
 </style>

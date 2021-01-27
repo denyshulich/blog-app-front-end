@@ -75,22 +75,20 @@ export default {
 }
 
 .wraper {
-    padding: get-m-vw(32px) get-m-vw(38px) 0 get-m-vw(38px);
+    padding: get-m-vw(20px) get-m-vw(38px) 0 get-m-vw(38px);
 
     @include mediaSize(tablet) {
-        padding: get-t-vw(32px) get-t-vw(38px) 0 get-t-vw(38px);
+        padding: get-t-vw(20px) get-t-vw(38px) 0 get-t-vw(38px);
     }
 
     @include mediaSize(desktop) {
-        padding: get-vw(32px) get-vw(38px) 0 get-vw(38px);
+        padding: get-vw(20px) get-vw(38px) 0 get-vw(38px);
     }
 }
 
 .container {
     position: relative;
-    top: 0;
-    width: get-m-vw(330px);
-    height: max-content;
+    width: get-m-vw(280px);
     margin: auto;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
     transition: top 0.6s ease-in-out, box-shadow 0.6s ease-in-out;

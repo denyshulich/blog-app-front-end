@@ -1,7 +1,7 @@
 <template>
     <div class="category-container">
         <p class="categories">
-            <NuxtLink v-for="ctg in categories" :key="ctg" class="none-decoration category" to="/">
+            <NuxtLink v-for="ctg in categories" :key="ctg" class="category" to="/">
                 {{ ctg.toUpperCase() }}
             </NuxtLink>
         </p>
@@ -35,7 +35,7 @@ export default {
 <style lang="scss" scoped>
 .category-container {
     position: relative;
-    padding: get-m-vw(5px) 0;
+    padding: get-m-vw(15px) 0;
     padding-left: get-m-vw(38px);
     margin-right: get-m-vw(92px);
     margin-left: get-m-vw(-38px);
@@ -43,18 +43,22 @@ export default {
     border-top: $border;
 
     @include mediaSize(tablet) {
-        padding: get-t-vw(5px) 0;
+        padding: get-t-vw(15px) 0;
         padding-left: get-t-vw(38px);
         margin-right: get-t-vw(92px);
         margin-left: get-t-vw(-38px);
     }
 
     @include mediaSize(desktop) {
-        padding: get-vw(5px) 0;
+        padding: get-vw(15px) 0;
         padding-left: get-vw(38px);
         margin-right: get-vw(92px);
         margin-left: get-vw(-38px);
     }
+}
+
+.categories {
+    margin: 0;
 }
 
 .category {
@@ -117,18 +121,18 @@ export default {
 }
 
 .icon-bubble {
-    width: get-m-vw(25px);
-    height: get-m-vw(25px);
+    width: get-m-vw(16px);
+    height: get-m-vw(16px);
     color: inherit;
 
     @include mediaSize(tablet) {
-        width: get-t-vw(25px);
-        height: get-t-vw(25px);
+        width: get-t-vw(16px);
+        height: get-t-vw(16px);
     }
 
     @include mediaSize(desktop) {
-        width: get-vw(25px);
-        height: get-vw(25px);
+        width: get-vw(16px);
+        height: get-vw(16px);
     }
 }
 
@@ -146,7 +150,7 @@ export default {
 
     span {
         margin: auto;
-        font-size: get-m-vw(20px);
+        font-size: get-m-vw(15px);
 
         @include mediaSize(tablet) {
             font-size: get-t-vw(20px);

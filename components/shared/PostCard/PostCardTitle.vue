@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .title {
     margin: get-m-vw(14px) 0;
-    font-size: get-m-vw(30px);
+    font-size: get-m-vw(28px);
     color: black;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
@@ -54,20 +54,20 @@ export default {
 }
 
 .text {
-    padding-bottom: get-m-vw(28px);
+    padding-bottom: get-m-vw(10px);
     font-family: 'Relaway', sans-serif;
-    font-size: get-m-vw(18px);
+    font-size: get-m-vw(14px);
     font-weight: normal;
     color: $colorGrey;
 
     @include mediaSize(tablet) {
-        padding-bottom: get-t-vw(28px);
-        font-size: get-t-vw(18px);
+        padding-bottom: get-t-vw(10px);
+        font-size: get-t-vw(14px);
     }
 
     @include mediaSize(desktop) {
-        padding-bottom: get-vw(28px);
-        font-size: get-vw(18px);
+        padding-bottom: get-vw(10px);
+        font-size: get-vw(14px);
     }
 }
 </style>

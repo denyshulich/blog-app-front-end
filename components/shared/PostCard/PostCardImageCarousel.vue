@@ -51,6 +51,25 @@ export default {
 </script>
 
 <style lang="scss">
+.img-wrapper img {
+    object-fit: cover;
+    width: get-m-vw(280px);
+    height: get-m-vw(300px);
+    object-position: center;
+    margin: auto;
+    background-image: linear-gradient(gray 100%, transparent 0);
+
+    @include mediaSize(tablet) {
+        width: get-t-vw(300px);
+        height: get-t-vw(300px);
+    }
+
+    @include mediaSize(desktop) {
+        width: get-vw(400px);
+        height: get-vw(300px);
+    }
+}
+
 .ctm-slick-arrow {
     position: absolute;
     top: 40%;
@@ -199,25 +218,6 @@ export default {
                 }
             }
         }
-    }
-}
-
-.img-wrapper img {
-    object-fit: cover;
-    width: get-m-vw(330px);
-    height: get-m-vw(300px);
-    object-position: center;
-    margin: auto;
-    background-image: linear-gradient(gray 100%, transparent 0);
-
-    @include mediaSize(tablet) {
-        width: get-t-vw(300px);
-        height: get-t-vw(300px);
-    }
-
-    @include mediaSize(desktop) {
-        width: get-vw(400px);
-        height: get-vw(300px);
     }
 }
 </style>

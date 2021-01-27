@@ -1,16 +1,23 @@
 <template>
     <div>
         <Header />
-        <Nuxt />
+        <LayoutPage>
+            <template #titelbar><BlockCategoriesList /></template>
+            <template #content><Nuxt /></template>
+        </LayoutPage>
     </div>
 </template>
 
 <script>
-import Header from '../layouts/header';
+import Header from './header';
+import LayoutPage from '~/components/layout/LayoutPage';
+import BlockCategoriesList from '~/components/blocks/BlockCategoriesList.vue';
 
 export default {
     components: {
-        Header
+        Header,
+        LayoutPage,
+        BlockCategoriesList
     }
 };
 </script>
