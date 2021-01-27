@@ -49,11 +49,10 @@ export default {
 .post__one-image {
     z-index: 1;
     object-fit: cover;
-    width: get-m-vw(280px);
+    width: get-m-vw(270px);
     height: max-content;
     max-height: get-m-vw(300px);
     object-position: center;
-    transition: 1s;
 
     @include mediaSize(tablet) {
         width: get-t-vw(300px);
@@ -68,6 +67,10 @@ export default {
 
 .overlay {
     position: absolute;
+    visibility: hidden;
+    background-color: rgba(71, 201, 229, 0.8);
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
 }
 
 .post__meta-tumb {
@@ -82,7 +85,8 @@ export default {
             bottom: 0;
             left: 0;
             display: flex;
-            background-color: rgba(71, 201, 229, 0.8);
+            visibility: visible;
+            opacity: 1;
         }
 
         .post__one-image {

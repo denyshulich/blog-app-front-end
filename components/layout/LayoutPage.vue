@@ -16,6 +16,7 @@ export default {};
 
 <style lang="scss" scoped>
 .page-container {
+    position: relative;
     width: 100%;
     margin: 0 auto;
 
@@ -38,11 +39,12 @@ export default {};
 }
 
 .container-sidebar {
-    width: 100%;
+    width: 70%;
     padding: get-m-vw(15px) 0;
     margin: 0 auto;
 
     @include mediaSize(tablet) {
+        width: 94%;
         padding: get-t-vw(15px) 0;
     }
 

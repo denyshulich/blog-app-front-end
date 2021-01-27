@@ -12,8 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-    width: 100%;
-    height: 400px;
+    height: 100px;
     background-color: black;
 }
 </style>

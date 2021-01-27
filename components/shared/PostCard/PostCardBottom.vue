@@ -153,11 +153,11 @@ export default {
         font-size: get-m-vw(15px);
 
         @include mediaSize(tablet) {
-            font-size: get-t-vw(20px);
+            font-size: get-t-vw(15px);
         }
 
         @include mediaSize(desktop) {
-            font-size: get-vw(20px);
+            font-size: get-vw(15px);
         }
     }
 }

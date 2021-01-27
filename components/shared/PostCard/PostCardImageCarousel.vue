@@ -53,7 +53,7 @@ export default {
 <style lang="scss">
 .img-wrapper img {
     object-fit: cover;
-    width: get-m-vw(280px);
+    width: get-m-vw(270px);
     height: get-m-vw(300px);
     object-position: center;
     margin: auto;

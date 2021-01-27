@@ -42,9 +42,7 @@ export default {
                     },
                     550: {
                         columns: 1,
-                        margin: {
-                            y: 15
-                        }
+                        margin: 0
                     }
                 }
             }
@@ -55,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-    width: get-m-vw(374px);
+    width: get-m-vw(375px);
 
     @include mediaSize(tablet) {
         width: get-t-vw(700px);

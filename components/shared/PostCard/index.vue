@@ -88,8 +88,8 @@ export default {
 
 .container {
     position: relative;
-    width: get-m-vw(280px);
-    margin: auto;
+    width: get-m-vw(270px);
+    margin: 0 auto;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
     transition: top 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
 
