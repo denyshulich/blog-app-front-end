@@ -49,7 +49,7 @@ export default {
 .post__one-image {
     z-index: 1;
     object-fit: cover;
-    width: get-m-vw(330px);
+    width: get-m-vw(280px);
     height: max-content;
     max-height: get-m-vw(300px);
     object-position: center;

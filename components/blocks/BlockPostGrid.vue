@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-    width: get-m-vw(375px);
+    width: get-m-vw(374px);
 
     @include mediaSize(tablet) {
         width: get-t-vw(700px);
