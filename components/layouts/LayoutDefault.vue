@@ -1,9 +1,9 @@
 <template>
     <div class="page-container">
         <slot name="titelbar"></slot>
-        <div class="container-content-and-sidebar">
+        <div class="entry-content">
             <slot name="content"></slot>
-            <aside class="container-sidebar">
+            <aside class="sidebar">
                 <slot name="sidebar"></slot>
             </aside>
         </div>
@@ -31,7 +31,7 @@ export default {
     }
 }
 
-.container-content-and-sidebar {
+.entry-content {
     display: flex;
     flex-direction: column;
 
@@ -40,7 +40,7 @@ export default {
     }
 }
 
-.container-sidebar {
+.sidebar {
     width: 70%;
     padding: get-m-vw(15px) 0;
     margin: 0 auto;

@@ -1,7 +1,5 @@
 <template>
-    <div class="post-card__video-player">
-        <LazyYoutubeVideo :src="'https://www.youtube.com/embed/' + getVideoId" />
-    </div>
+    <LazyYoutubeVideo :src="'https://www.youtube.com/embed/' + getVideoId" />
 </template>
 
 <script>
@@ -25,19 +23,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss">
-.post-card__video-player {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.post-card__video-player iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>

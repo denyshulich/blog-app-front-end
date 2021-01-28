@@ -1,13 +1,13 @@
 <template>
-    <div class="category-container">
+    <div class="bottom-container">
         <p class="categories">
             <NuxtLink v-for="ctg in categories" :key="ctg" class="category" to="/">
                 {{ ctg.toUpperCase() }}
             </NuxtLink>
         </p>
-        <BaseButton class="position-button" url="/">
-            <SvgIcon name="speech-bubble" class="icon-bubble" />
-            <div class="comment__number">
+        <BaseButton class="comment" url="/">
+            <SvgIcon name="speech-bubble" class="icon-comment" />
+            <div class="comment-num">
                 <span> {{ comments }} </span>
             </div>
         </BaseButton>
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.category-container {
+.bottom-container {
     position: relative;
     padding: get-m-vw(15px) 0;
     padding-left: get-m-vw(38px);
@@ -93,7 +93,7 @@ export default {
     }
 }
 
-.position-button {
+.comment {
     position: absolute;
     top: get-m-vw(-20px);
     right: get-m-vw(-100px);
@@ -120,7 +120,7 @@ export default {
     }
 }
 
-.icon-bubble {
+.icon-comment {
     width: get-m-vw(16px);
     height: get-m-vw(16px);
     color: inherit;
@@ -136,7 +136,7 @@ export default {
     }
 }
 
-.comment__number {
+.comment-num {
     display: flex;
     padding-left: get-m-vw(10px);
 

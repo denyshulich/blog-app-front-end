@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <NuxtLink class="none-decoration" to="/">
-            <h2 class="title">{{ title }}</h2>
+    <div id="post-card-content">
+        <NuxtLink to="/">
+            <h2 class="post-title">{{ title }}</h2>
         </NuxtLink>
 
-        <p class="text">{{ textLenght }}</p>
+        <p class="post-text">{{ textLenght }}</p>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'PostCardTitle',
+    name: 'PostCardContent',
     props: {
         title: {
             type: String,
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
+.post-title {
     margin: get-m-vw(14px) 0;
     font-size: get-m-vw(28px);
     color: black;
@@ -53,7 +53,7 @@ export default {
     }
 }
 
-.text {
+.post-text {
     padding-bottom: get-m-vw(10px);
     font-family: 'Relaway', sans-serif;
     font-size: get-m-vw(14px);

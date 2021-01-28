@@ -1,5 +1,5 @@
 <template>
-    <div class="layout">
+    <div id="post-preview" class="layout">
         <PostPreviewIcon :img="post.img" :comments="post.comments" />
         <PostPreviewContent :categories="post.categories" :title="post.title" />
     </div>

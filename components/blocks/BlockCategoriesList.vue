@@ -1,11 +1,11 @@
 <template>
     <nav class="container">
         <ul>
-            <li v-for="category of categories" :key="category" class="categories__item">
+            <li v-for="category of categories" :key="category" class="categories-item">
                 <NuxtLink
                     active-class="active"
                     :to="'/category/' + category.toLowerCase()"
-                    class="categories__item-content"
+                    class="categories-link"
                 >
                     {{ category }}
                 </NuxtLink>
@@ -51,7 +51,7 @@ export default {
     }
 }
 
-.categories__item {
+.categories-item {
     display: inline-block;
     padding: get-m-vw(5px) get-m-vw(8px);
 
@@ -64,7 +64,7 @@ export default {
     }
 
     &:hover {
-        .categories__item-content {
+        .categories-link {
             color: white;
             background-color: $colorBlue;
             border-color: $colorBlue;
@@ -72,7 +72,7 @@ export default {
     }
 }
 
-.categories__item-content {
+.categories-link {
     display: inline-block;
     padding: get-m-vw(6px) get-m-vw(15px);
     font-size: get-m-vw(13px);

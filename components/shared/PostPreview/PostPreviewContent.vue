@@ -1,13 +1,13 @@
 <template>
-    <div class="container">
-        <div class="categories">
+    <div class="container-content">
+        <div class="content-categories">
             <NuxtLink v-for="ctg in categories" :key="ctg" class="category" to="/">
                 {{ ctg.toUpperCase() }}
             </NuxtLink>
         </div>
 
-        <NuxtLink class="title" to="/">
-            {{ title }}
+        <NuxtLink class="content-title" to="/">
+            <h2 class="content-title">{{ title }}</h2>
         </NuxtLink>
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.container-content {
     padding-top: 1%;
     padding-left: get-m-vw(20px);
 
@@ -41,7 +41,7 @@ export default {
     }
 }
 
-.categories {
+.content-categories {
     padding-bottom: get-m-vw(5px);
     margin: 0;
 
@@ -87,7 +87,7 @@ export default {
     }
 }
 
-.title {
+.content-title {
     font-size: get-m-vw(16px);
 
     @include mediaSize(tablet) {

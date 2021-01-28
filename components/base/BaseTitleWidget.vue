@@ -1,5 +1,5 @@
 <template>
-    <p class="title">
+    <p class="base-widget-title">
         <slot></slot>
     </p>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
+.base-widget-title {
     font-size: get-m-vw(20px);
     color: #505050;
 

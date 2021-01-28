@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <BaseTitleWidget>Latest posts</BaseTitleWidget>
-        <div v-for="post of posts" :key="post" class="container-post-preview">
+        <div v-for="post of posts" :key="post" class="post-preview-inner">
             <PostPreview :post="post" />
         </div>
     </div>
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-post-preview {
+.post-preview-inner {
     position: relative;
     padding-bottom: get-m-vw(15px);
     margin-bottom: get-m-vw(25px);
@@ -69,7 +69,7 @@ export default {
     }
 }
 
-.title {
+.base-widget-title {
     font-size: get-m-vw(20px);
     color: #505050;
 

@@ -1,6 +1,6 @@
 <template>
-    <div class="layout">
-        <div class="container">
+    <div class="post-layout">
+        <div class="post-container">
             <div v-if="videoTumbler">
                 <PostCardVideo :video="posts.video" />
             </div>
@@ -8,9 +8,9 @@
                 <PostCardImageCarousel v-if="imageTumbler" :image="posts.img" />
                 <PostCardImage v-else :image="posts.img" />
             </div>
-            <div class="wraper">
-                <PostCardSubtitle :author="posts.author" :date="posts.date" />
-                <PostCardTitle :title="posts.title" :text="posts.text" />
+            <div class="post-wraper">
+                <PostCardMeta :author="posts.author" :date="posts.date" />
+                <PostCardContent :title="posts.title" :text="posts.text" />
                 <PostCardBottom :categories="posts.categories" :comments="posts.comments" />
             </div>
         </div>
@@ -21,16 +21,16 @@
 import PostCardBottom from './PostCardBottom';
 import PostCardImage from './PostCardImage';
 import PostCardImageCarousel from './PostCardImageCarousel';
-import PostCardSubtitle from './PostCardSubtitle';
-import PostCardTitle from './PostCardTitle';
+import PostCardMeta from './PostCardMeta';
+import PostCardContent from './PostCardContent';
 import PostCardVideo from './PostCardVideo';
 
 export default {
     components: {
         PostCardImage,
-        PostCardSubtitle,
+        PostCardMeta,
         PostCardImageCarousel,
-        PostCardTitle,
+        PostCardContent,
         PostCardBottom,
         PostCardVideo
     },
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout {
+.post-layout {
     display: flex;
     padding: get-m-vw(15px) 0;
 
@@ -74,7 +74,7 @@ export default {
     }
 }
 
-.wraper {
+.post-wraper {
     padding: get-m-vw(20px) get-m-vw(38px) 0 get-m-vw(38px);
 
     @include mediaSize(tablet) {
@@ -86,7 +86,7 @@ export default {
     }
 }
 
-.container {
+.post-container {
     position: relative;
     width: get-m-vw(270px);
     margin: 0 auto;

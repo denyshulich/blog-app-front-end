@@ -1,15 +1,14 @@
 <template>
     <div class="container">
-        <NuxtLink to="/" class="icon-container">
+        <NuxtLink to="/" class="icon">
             <img class="icon-image lazyload" :data-src="img" alt="" />
-            <div class="overlay">
+            <div class="icon-overlay">
                 <SvgIcon name="url" class="icon-svg" />
             </div>
+            <div class="icon-comment">
+                <p>{{ comments }}</p>
+            </div>
         </NuxtLink>
-
-        <div class="position">
-            <p>{{ comments }}</p>
-        </div>
     </div>
 </template>
 
@@ -35,12 +34,11 @@ export default {
     position: relative;
 }
 
-.icon-container {
+.icon {
     position: relative;
     display: block;
     width: get-m-vw(76px);
     height: get-m-vw(76px);
-    overflow: hidden;
     border-radius: 100px;
 
     @include mediaSize(tablet) {
@@ -53,7 +51,7 @@ export default {
         height: get-vw(76px);
     }
 
-    .overlay {
+    .icon-overlay {
         position: absolute;
         top: 0;
         right: 0;
@@ -67,7 +65,7 @@ export default {
     }
 
     &:hover {
-        .overlay {
+        .icon-overlay {
             display: flex;
             visibility: visible;
             opacity: 1;
@@ -87,9 +85,10 @@ export default {
     width: inherit;
     height: inherit;
     object-position: center;
+    border-radius: 100px;
 }
 
-.position {
+.icon-comment {
     position: absolute;
     top: 2px;
     left: 70%;

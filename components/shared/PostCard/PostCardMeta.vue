@@ -1,14 +1,14 @@
 <template>
-    <div class="subtitle">
-        <NuxtLink class="post__author" to="/">By {{ author }} </NuxtLink>
+    <div class="post-meta">
+        <NuxtLink class="post-author" to="/">By {{ author }} </NuxtLink>
 
-        <NuxtLink class="post__data" to="/"> {{ date }} </NuxtLink>
+        <NuxtLink class="post-date" to="/"> {{ date }} </NuxtLink>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'PostCardSubtitle',
+    name: 'PostCardMeta',
     props: {
         date: {
             type: String,
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.subtitle {
+.post-meta {
     font-size: get-m-vw(13px);
     font-weight: normal;
 
@@ -36,7 +36,7 @@ export default {
     }
 }
 
-.post__author {
+.post-author {
     display: inline;
     color: $colorGrey;
     text-decoration: none;
@@ -48,7 +48,7 @@ export default {
     }
 }
 
-.post__data {
+.post-date {
     display: inline;
     padding-left: get-m-vw(10px);
     color: $colorGrey;

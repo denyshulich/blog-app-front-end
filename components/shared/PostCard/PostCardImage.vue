@@ -1,22 +1,19 @@
 <template>
     <div>
-        <div class="post__meta-tumb">
-            <img data-sizes="auto" :data-src="image || image[0]" class="lazyload post__one-image" />
-            <div class="overlay">
-                <div class="overlay__link link-url">
-                    <NuxtLink to="/" class="link-item__container">
-                        <SvgIcon name="url" class="post__icon" />
+        <div class="post-tumb">
+            <img data-sizes="auto" :data-src="image || image[0]" class="lazyload tumb-image" />
+            <div class="tumb-overlay">
+                <div class="overlay-link link-url">
+                    <NuxtLink to="/" class="link-item">
+                        <SvgIcon name="url" class="link-icon" />
                     </NuxtLink>
-                    <NuxtLink class="link-item__container_desktop" to="/" />
+                    <NuxtLink class="link-item-desktop" to="/" />
                 </div>
-                <div class="overlay__link link-loupe">
-                    <div v-img="{ src: `${image || image[0]}` }" class="link-item__container">
-                        <SvgIcon name="loupe" class="post__icon" />
+                <div class="overlay-link link-loupe">
+                    <div v-img="{ src: `${image || image[0]}` }" class="link-item">
+                        <SvgIcon name="loupe" class="link-icon" />
                     </div>
-                    <div
-                        v-img="{ src: `${image || image[0]}` }"
-                        class="link-item__container_desktop"
-                    />
+                    <div v-img="{ src: `${image || image[0]}` }" class="link-item-desktop" />
                 </div>
             </div>
         </div>
@@ -46,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.post__one-image {
+.tumb-image {
     z-index: 1;
     object-fit: cover;
     width: get-m-vw(270px);
@@ -65,7 +62,7 @@ export default {
     }
 }
 
-.overlay {
+.tumb-overlay {
     position: absolute;
     visibility: hidden;
     background-color: rgba(71, 201, 229, 0.8);
@@ -73,12 +70,12 @@ export default {
     transition: visibility 0s, opacity 0.3s linear;
 }
 
-.post__meta-tumb {
+.post-tumb {
     position: relative;
     overflow: hidden;
 
     &:hover {
-        .overlay {
+        .tumb-overlay {
             position: absolute;
             top: 0;
             right: 0;
@@ -89,17 +86,17 @@ export default {
             opacity: 1;
         }
 
-        .post__one-image {
+        .tumb-image {
             transform: scale(1.1);
         }
     }
 }
 
-.overlay__link {
+.overlay-link {
     width: 50%;
 }
 
-.post__icon {
+.link-icon {
     width: get-m-vw(30px);
     height: get-m-vw(30px);
     color: white;
@@ -122,11 +119,11 @@ export default {
     align-items: center;
     justify-content: flex-end;
 
-    .post__icon {
+    .link-icon {
         margin: auto;
     }
 
-    .link-item__container_desktop {
+    .link-item-desktop {
         display: none;
 
         @include mediaSize(desktop) {
@@ -141,7 +138,7 @@ export default {
     }
 
     &:hover {
-        .link-item__container {
+        .link-item {
             &:hover {
                 background-color: white;
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -149,7 +146,7 @@ export default {
                 animation-name: icon-animation;
                 animation-duration: 0.3s;
 
-                .post__icon {
+                .link-icon {
                     color: black;
                 }
             }
@@ -161,7 +158,7 @@ export default {
                 animation-name: icon-animation;
                 animation-duration: 0.3s;
 
-                .post__icon {
+                .link-icon {
                     color: black;
                 }
             }
@@ -169,7 +166,7 @@ export default {
     }
 }
 
-.link-item__container {
+.link-item {
     position: relative;
     display: flex;
     width: get-m-vw(60px);
@@ -180,40 +177,18 @@ export default {
     @include mediaSize(tablet) {
         width: get-t-vw(60px);
         height: get-t-vw(60px);
+        margin-right: get-t-vw(15px);
     }
 
     @include mediaSize(desktop) {
         width: get-vw(60px);
         height: get-vw(60px);
+        margin-right: get-vw(15px);
     }
 }
 
 .link-loupe {
     justify-content: flex-start;
-
-    .link-item__container {
-        // margin-left: get-m-vw(15px);
-
-        @include mediaSize(tablet) {
-            margin-left: get-t-vw(15px);
-        }
-
-        @include mediaSize(desktop) {
-            margin-left: get-vw(15px);
-        }
-    }
-}
-
-.link-url .link-item__container {
-    // margin-right: get-m-vw(15px);
-
-    @include mediaSize(tablet) {
-        margin-right: get-t-vw(15px);
-    }
-
-    @include mediaSize(desktop) {
-        margin-right: get-vw(15px);
-    }
 }
 
 @keyframes icon-animation {

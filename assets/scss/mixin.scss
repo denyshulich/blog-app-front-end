@@ -1,0 +1,101 @@
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: $font-family;
+        // src: url('#{$file-path}.eot')
+        src: url('#{$file-path}.woff2') format('woff2');
+        //  url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+        // url('#{$file-path}.ttf') format('truetype')
+        font-style: $style;
+        font-weight: $weight;
+        font-display: swap;
+    }
+}
+
+@include font-face('Montserrat', '~assets/fonts/montserrat-v15-latin-regular', 400, normal);
+@include font-face('Montserrat', '~assets/fonts/montserrat-v15-latin-700', 700, bold);
+@include font-face('Raleway', '~assets/fonts/raleway-v18-latin-regular', 400, normal);
+@include font-face('Raleway', '~assets/fonts/raleway-v18-latin-700', 700, bold);
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+$layout-width: 1920;
+$mobile-width: 375;
+$tablet-width: 760;
+
+@function get-vw($px) {
+    $vw-context: ($layout-width * 0.01) * 1px;
+
+    @return ($px/$vw-context) * 1vw;
+}
+
+@function get-t-vw($px) {
+    $vw-context: ($tablet-width * 0.01) * 1px;
+
+    @return ($px/$vw-context) * 1vw;
+}
+
+@function get-m-vw($px) {
+    $vw-context: ($mobile-width * 0.01) * 1px;
+
+    @return ($px/$vw-context) * 1vw;
+}
+
+@function get-vh($px) {
+    $vw-context: (1080 * 0.01) * 1px;
+
+    @return ($px/$vw-context) * 1vh;
+}
+
+@function get-t-vh($px) {
+    $vw-context: (1024 * 0.01) * 1px;
+
+    @return ($px/$vw-context) * 1vh;
+}
+
+@function get-m-vh($px) {
+    $vw-context: (667 * 0.01) * 1px;
+
+    @return ($px/$vw-context) * 1vh;
+}
+
+@function get-calc-vw($percent, $operator, $px) {
+    $vw-context: ($layout-width * 0.01) * 1px;
+
+    @return unquote(('calc(' + $percent + ' ' + $operator + ' ' + ($px/$vw-context) * 1vw +')'));
+}
+
+@function get-calc-mvw($percent, $operator, $px) {
+    $vw-context: ($mobile-width * 0.01) * 1px;
+
+    @return unquote(('calc(' + $percent + ' ' + $operator + ' ' + ($px/$vw-context) * 1vw +')'));
+}
+
+@function get-calc-tvw($percent, $operator, $px) {
+    $vw-context: ($tablet-width * 0.01) * 1px;
+
+    @return unquote(('calc(' + $percent + ' ' + $operator + ' ' + ($px/$vw-context) * 1vw +')'));
+}
+
+//использование данного миксина  +mediaSize(sm)
+@mixin mediaSize($media) {
+    @if $media == desktop {
+        @media (min-width: 1020px) {
+            @content;
+        }
+    }
+
+    @if $media == tablet {
+        @media (min-width: 550px) {
+            @content;
+        }
+        /* stylelint-disable */
+    } @else {
+        /* stylelint-enable */
+        @media (max-width: $media+px) {
+            @content;
+        }
+    }
+}
