@@ -1,47 +1,26 @@
 <template>
-    <div class="post-card__video-player"><div id="player"></div></div>
+    <div class="post-card__video-player">
+        <LazyYoutubeVideo :src="'https://www.youtube.com/embed/' + getVideoId" />
+    </div>
 </template>
 
 <script>
+import LazyYoutubeVideo from 'vue-lazy-youtube-video';
+import 'vue-lazy-youtube-video/dist/style.css';
 export default {
     name: 'PostCardVidep',
+    components: {
+        LazyYoutubeVideo
+    },
     props: {
         video: {
             type: [Array, String],
             required: true
         }
     },
-    data() {
-        return {
-            videoId: ''
-        };
-    },
-
-    mounted() {
-        this.getVideoId();
-        this.addPlayerVideo();
-        window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady;
-    },
-    methods: {
+    computed: {
         getVideoId() {
-            this.videoId = this.video.split('=')[1];
-        },
-
-        addPlayerVideo() {
-            const tag = document.createElement('script');
-
-            tag.src = 'https://www.youtube.com/iframe_api';
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        },
-
-        onYouTubeIframeAPIReady() {
-            // eslint-disable-next-line
-            const player = new YT.Player('player', {
-                height: 'unset',
-                width: '100%',
-                videoId: this.videoId
-            });
+            return this.video.split('=')[1];
         }
     }
 };
@@ -52,12 +31,6 @@ export default {
     position: relative;
     width: 100%;
     overflow: hidden;
-}
-
-.post-card__video-player::after {
-    display: block;
-    padding-top: 56.25%;
-    content: '';
 }
 
 .post-card__video-player iframe {

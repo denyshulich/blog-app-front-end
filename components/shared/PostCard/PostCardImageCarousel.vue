@@ -2,7 +2,7 @@
     <div class="carousel-wrapper">
         <VueSlickCarousel ref="carousel" v-bind="slickOptions">
             <div v-for="src of image" :key="src" class="img-wrapper">
-                <img :src="src" />
+                <img data-sizes="auto" :data-src="src" class="lazyload" />
             </div>
         </VueSlickCarousel>
         <div class="ctm-slick-next ctm-slick-arrow" @click="nextSlide">

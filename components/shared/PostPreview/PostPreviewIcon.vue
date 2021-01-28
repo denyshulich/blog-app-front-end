@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <NuxtLink to="/" class="icon-container">
-            <img class="icon-image" :src="img" alt="" />
+            <img class="icon-image lazyload" :data-src="img" alt="" />
             <div class="overlay">
                 <SvgIcon name="url" class="icon-svg" />
             </div>
