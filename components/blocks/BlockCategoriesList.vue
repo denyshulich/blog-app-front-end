@@ -1,15 +1,17 @@
 <template>
-    <div class="container">
-        <span v-for="category of categories" :key="category" class="categories__item">
-            <NuxtLink
-                active-class="active"
-                :to="'/category/' + category.toLowerCase()"
-                class="categories__item-content"
-            >
-                {{ category }}
-            </NuxtLink>
-        </span>
-    </div>
+    <nav class="container">
+        <ul>
+            <li v-for="category of categories" :key="category" class="categories__item">
+                <NuxtLink
+                    active-class="active"
+                    :to="'/category/' + category.toLowerCase()"
+                    class="categories__item-content"
+                >
+                    {{ category }}
+                </NuxtLink>
+            </li>
+        </ul>
+    </nav>
 </template>
 
 <script>
