@@ -3,15 +3,17 @@
         <slot name="titelbar"></slot>
         <div class="container-content-and-sidebar">
             <slot name="content"></slot>
-            <div class="container-sidebar">
+            <aside class="container-sidebar">
                 <slot name="sidebar"></slot>
-            </div>
+            </aside>
         </div>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+    name: 'LayoutDefault'
+};
 </script>
 
 <style lang="scss" scoped>
@@ -50,7 +52,7 @@ export default {};
 
     @include mediaSize(desktop) {
         width: get-vw(310px);
-        padding: 0;
+        padding: 0 0 0 3%;
     }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div><BlockPostGrid :posts="posts" /></div>
+    <main id="home-page"><BlockPostGrid :posts="posts" /></main>
 </template>
 
 <script>

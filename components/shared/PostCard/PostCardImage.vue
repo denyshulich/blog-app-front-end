@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="post__meta-tumb">
-            <img :src="image || image[0]" class="post__one-image" />
+            <img data-sizes="auto" :data-src="image || image[0]" class="lazyload post__one-image" />
             <div class="overlay">
                 <div class="overlay__link link-url">
                     <NuxtLink to="/" class="link-item__container">

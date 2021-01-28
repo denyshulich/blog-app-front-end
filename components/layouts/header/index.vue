@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import headerNavBar from './header-nav-bar.vue';
+import headerNavBar from './header-nav-bar';
 export default {
     components: {
         headerNavBar

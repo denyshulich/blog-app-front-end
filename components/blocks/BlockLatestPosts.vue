@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <p class="title">Latest Post</p>
+        <BaseTitleWidget>Latest posts</BaseTitleWidget>
         <div v-for="post of posts" :key="post" class="container-post-preview">
             <PostPreview :post="post" />
         </div>
@@ -8,10 +8,12 @@
 </template>
 
 <script>
+import BaseTitleWidget from '../base/BaseTitleWidget';
 import PostPreview from '~/components/shared/PostPreview';
 export default {
     components: {
-        PostPreview
+        PostPreview,
+        BaseTitleWidget
     },
     data() {
         return {
@@ -47,12 +49,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-    @include mediaSize(desktop) {
-        padding-left: 5%;
-    }
-}
-
 .container-post-preview {
     position: relative;
     padding-bottom: get-m-vw(15px);
