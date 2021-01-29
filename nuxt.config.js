@@ -45,14 +45,23 @@ export default {
         // https://github.com/nuxt-community/svg-sprite-module
         '@nuxtjs/svg-sprite',
         // https://github.com/nuxt-community/device-module
-        '@nuxtjs/device'
+        '@nuxtjs/device',
+
+        'bootstrap-vue/nuxt'
     ],
+
+    bootstrapVue: {
+        bootstrapCSS: false,
+        bootstrapVueCSS: false,
+        componentPlugins: ['Collapse', 'Form', 'FormGroup', 'FormInput'],
+        directivePlugins: []
+    },
 
     dotenv: {
         /* module options */
     },
     styleResources: {
-        scss: '~assets/scss/*.scss'
+        scss: ['~assets/scss/*.scss']
     },
     svgSprite: {
         input: '~/assets/svg/'

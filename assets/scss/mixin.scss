@@ -82,7 +82,7 @@ $tablet-width: 760;
 //использование данного миксина  +mediaSize(sm)
 @mixin mediaSize($media) {
     @if $media == desktop {
-        @media (min-width: 1020px) {
+        @media (min-width: 1200px) {
             @content;
         }
     }
@@ -94,7 +94,7 @@ $tablet-width: 760;
         /* stylelint-disable */
     } @else {
         /* stylelint-enable */
-        @media (max-width: $media+px) {
+        @media (min-width: $media+px) {
             @content;
         }
     }
