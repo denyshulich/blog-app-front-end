@@ -1,14 +1,20 @@
 <template>
-    <div>
-        <header-nav-bar></header-nav-bar>
-    </div>
+    <header>
+        <HeaderNavBarDesktop v-if="$device.isDesktop" />
+        <HeaderNavBarMobile v-else />
+        <HeaderBanner />
+    </header>
 </template>
 
 <script>
-import headerNavBar from './header-nav-bar';
+import HeaderBanner from './HeaderBanner.vue';
+import HeaderNavBarDesktop from './HeaderNavBarDesktop';
+import HeaderNavBarMobile from './HeaderNavBarMobile.vue';
 export default {
     components: {
-        headerNavBar
+        HeaderNavBarDesktop,
+        HeaderBanner,
+        HeaderNavBarMobile
     }
 };
 </script>

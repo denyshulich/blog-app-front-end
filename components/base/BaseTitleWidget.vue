@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .base-widget-title {
+    padding-bottom: 10%;
     font-size: get-m-vw(20px);
     color: #505050;
 

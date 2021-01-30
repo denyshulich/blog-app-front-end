@@ -2,10 +2,26 @@ $colorBlue: #47c9e5;
 $border: rgba(grey, 0.4) solid 1px;
 $colorGrey: #8d8d8d;
 
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
 button,
 a {
     color: black;
     text-decoration: none;
     background: none;
     border: none;
+}
+
+ul,
+li {
+    padding: 0;
+    list-style-type: none;
+}
+
+header {
+    position: relative;
 }

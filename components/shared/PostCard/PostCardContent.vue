@@ -66,7 +66,7 @@ export default {
     }
 
     @include mediaSize(desktop) {
-        padding-bottom: get-vw(10px);
+        padding-bottom: get-vw(30px);
         font-size: get-vw(14px);
     }
 }

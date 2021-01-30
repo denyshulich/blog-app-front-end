@@ -9,6 +9,7 @@
                 <BlockPopularTags />
             </template>
         </LayoutDefault>
+        <BlockScrollTop />
     </div>
 </template>
 
@@ -18,6 +19,7 @@ import LayoutDefault from '~/components/layouts/LayoutDefault';
 import BlockCategoriesList from '~/components/blocks/BlockCategoriesList';
 import BlockLatestPosts from '~/components/blocks/BlockLatestPosts';
 import BlockPopularTags from '~/components/blocks/BlockPopularTags';
+import BlockScrollTop from '~/components/blocks/BlockScrollTop.vue';
 
 export default {
     components: {
@@ -25,7 +27,8 @@ export default {
         LayoutDefault,
         BlockCategoriesList,
         BlockLatestPosts,
-        BlockPopularTags
+        BlockPopularTags,
+        BlockScrollTop
     }
 };
 </script>

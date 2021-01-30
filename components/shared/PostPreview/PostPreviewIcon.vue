@@ -92,16 +92,19 @@ export default {
     position: absolute;
     top: 2px;
     left: 70%;
-    height: 14%;
+    height: 15%;
     padding: 10%;
     cursor: pointer;
     background-color: $colorBlue;
     border-radius: 100px;
 
     p {
+        display: table-cell;
+        padding: 0 15%;
         margin: 0;
-        font-size: get-m-vw(12px);
+        font-size: get-m-vw(10px);
         color: white;
+        vertical-align: middle;
 
         @include mediaSize(tablet) {
             font-size: get-t-vw(10px);

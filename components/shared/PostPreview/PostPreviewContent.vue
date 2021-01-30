@@ -30,14 +30,14 @@ export default {
 <style lang="scss" scoped>
 .container-content {
     padding-top: 1%;
-    padding-left: get-m-vw(20px);
+    padding-left: get-m-vw(25px);
 
     @include mediaSize(tablet) {
-        padding-left: get-t-vw(20px);
+        padding-left: get-t-vw(25px);
     }
 
     @include mediaSize(desktop) {
-        padding-left: get-vw(20px);
+        padding-left: get-vw(25px);
     }
 }
 
