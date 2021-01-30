@@ -12,7 +12,7 @@ export default {
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: ['normalize.css/normalize.css'],
+    css: ['normalize.css/normalize.css', '~/assets/scss/main.scss'],
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
         { src: '~/plugins/load-script.js', ssr: false },
@@ -53,8 +53,8 @@ export default {
     bootstrapVue: {
         bootstrapCSS: false,
         bootstrapVueCSS: false,
-        componentPlugins: ['Collapse', 'Form', 'FormGroup', 'FormInput'],
-        directivePlugins: []
+        componentPlugins: ['Collapse', 'Form', 'FormInput'],
+        directivePlugins: ['VBToggle']
     },
 
     dotenv: {

@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <BaseTitleWidget>Latest posts</BaseTitleWidget>
-        <div v-for="post of posts" :key="post" class="post-preview-inner">
+        <div v-for="post of posts" :key="post.img" class="post-preview-inner">
             <PostPreview :post="post" />
         </div>
     </div>

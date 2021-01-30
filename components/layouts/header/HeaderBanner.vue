@@ -22,8 +22,8 @@ export default {};
     box-sizing: border-box;
     display: flex;
     width: 100%;
-    height: get-m-vw(207px);
-    padding-top: get-m-vw(100px);
+    height: get-m-vw(170px);
+    padding-top: get-m-vw(60px);
 
     @include mediaSize(tablet) {
         height: get-t-vw(350px);
@@ -57,7 +57,7 @@ export default {};
 }
 
 .banner-title {
-    font-size: get-m-vw(48px);
+    font-size: get-m-vw(20px);
 
     @include mediaSize(tablet) {
         font-size: get-t-vw(40px);
@@ -69,9 +69,9 @@ export default {};
 }
 
 .banner-disc {
-    padding-top: get-m-vw(20px);
+    padding-top: get-m-vw(10px);
     font-family: 'Relaway', sans-serif;
-    font-size: get-m-vw(18px);
+    font-size: get-m-vw(13px);
     font-weight: normal;
 
     @include mediaSize(tablet) {
