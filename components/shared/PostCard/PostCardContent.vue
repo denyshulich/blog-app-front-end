@@ -54,14 +54,14 @@ export default {
 }
 
 .post-text {
-    padding-bottom: get-m-vw(10px);
+    padding-bottom: get-m-vw(30px);
     font-family: 'Relaway', sans-serif;
     font-size: get-m-vw(14px);
     font-weight: normal;
     color: $colorGrey;
 
     @include mediaSize(tablet) {
-        padding-bottom: get-t-vw(10px);
+        padding-bottom: get-t-vw(30px);
         font-size: get-t-vw(14px);
     }
 

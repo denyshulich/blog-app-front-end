@@ -1,8 +1,8 @@
 <template>
     <div class="carousel-wrapper">
         <VueSlickCarousel ref="carousel" v-bind="slickOptions">
-            <div v-for="src of image" :key="src" class="img-wrapper">
-                <img data-sizes="auto" :data-src="src" class="lazyload" />
+            <div v-for="image of images" :key="image.src" class="img-wrapper">
+                <img data-sizes="auto" :data-src="image.src" class="lazyload" />
             </div>
         </VueSlickCarousel>
         <div class="ctm-slick-next ctm-slick-arrow" @click="nextSlide">
@@ -23,7 +23,7 @@ export default {
     name: 'PostCardImageCarousel',
     components: { VueSlickCarousel },
     props: {
-        image: {
+        images: {
             type: Array,
             required: true
         }

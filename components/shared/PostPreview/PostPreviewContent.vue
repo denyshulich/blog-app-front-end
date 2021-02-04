@@ -1,13 +1,13 @@
 <template>
     <div class="container-content">
         <div class="content-categories">
-            <NuxtLink v-for="ctg in categories" :key="ctg" class="category" to="/">
+            <NuxtLink v-for="ctg in categories" :key="ctg" class="category" :class="thema" to="/">
                 {{ ctg.toUpperCase() }}
             </NuxtLink>
         </div>
 
         <NuxtLink class="content-title" to="/">
-            <h2 class="content-title">{{ title }}</h2>
+            <h2 class="content-title" :class="thema">{{ title }}</h2>
         </NuxtLink>
     </div>
 </template>
@@ -20,6 +20,10 @@ export default {
             required: true
         },
         title: {
+            type: String,
+            required: true
+        },
+        thema: {
             type: String,
             required: true
         }
@@ -72,6 +76,14 @@ export default {
     }
 }
 
+.category.dark {
+    color: #fff;
+
+    &:hover {
+        color: $colorGrey;
+    }
+}
+
 .category:not(:last-child) {
     &::after {
         padding-right: get-m-vw(5px);
@@ -97,6 +109,14 @@ export default {
     @include mediaSize(desktop) {
         font-size: get-vw(16px);
     }
+
+    &:hover {
+        color: $colorBlue;
+    }
+}
+
+.content-title.dark {
+    color: white;
 
     &:hover {
         color: $colorBlue;

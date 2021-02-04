@@ -1,7 +1,7 @@
 <template>
     <div id="post-preview" class="layout">
         <PostPreviewIcon :img="post.img" :comments="post.comments" />
-        <PostPreviewContent :categories="post.categories" :title="post.title" />
+        <PostPreviewContent :categories="post.categories" :title="post.title" :thema="thema" />
     </div>
 </template>
 
@@ -13,6 +13,10 @@ export default {
     props: {
         post: {
             type: Object,
+            required: true
+        },
+        thema: {
+            type: String,
             required: true
         }
     }

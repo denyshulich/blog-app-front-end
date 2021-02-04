@@ -2,16 +2,16 @@
     <div class="post-layout">
         <div class="post-container">
             <div v-if="videoTumbler">
-                <PostCardVideo :video="posts.video" />
+                <PostCardVideo :video="post.video" />
             </div>
             <div v-else>
-                <PostCardImageCarousel v-if="imageTumbler" :image="posts.img" />
-                <PostCardImage v-else :image="posts.img" />
+                <PostCardImageCarousel v-if="imageTumbler" :images="post.images" />
+                <PostCardImage v-else :image="post.images" />
             </div>
             <div class="post-wraper">
-                <PostCardMeta :author="posts.author" :date="posts.date" />
-                <PostCardContent :title="posts.title" :text="posts.text" />
-                <PostCardBottom :categories="posts.categories" :comments="posts.comments" />
+                <PostCardMeta :author="post.author || 'default'" :date="post.date || 'default'" />
+                <PostCardContent :title="post.title" :text="post.shortDescription" />
+                <PostCardBottom :categories="post.categories" :comments="post.comments || 0" />
             </div>
         </div>
     </div>
@@ -35,14 +35,14 @@ export default {
         PostCardVideo
     },
     props: {
-        posts: {
+        post: {
             type: Object,
             required: true
         }
     },
     computed: {
         imageTumbler() {
-            if (Array.isArray(this.posts.img) && this.posts.img.length > 1) {
+            if (Array.isArray(this.post.images) && this.post.images.length > 1) {
                 return true;
             } else {
                 return false;
@@ -50,7 +50,7 @@ export default {
         },
 
         videoTumbler() {
-            if (this.posts.video !== undefined) {
+            if (this.post.video !== null && this.post.video !== undefined) {
                 return true;
             } else {
                 return false;

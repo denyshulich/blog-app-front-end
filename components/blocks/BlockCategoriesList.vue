@@ -1,13 +1,18 @@
 <template>
     <nav class="container">
         <ul>
-            <li v-for="category of categories" :key="category" class="categories-item">
+            <li class="categories-item">
+                <NuxtLink exact active-class="active" to="/" class="categories-link">
+                    All
+                </NuxtLink>
+            </li>
+            <li class="categories-item">
                 <NuxtLink
                     active-class="active"
-                    :to="'/category/' + category.toLowerCase()"
+                    :to="'/category/' + category.slug"
                     class="categories-link"
                 >
-                    {{ category }}
+                    {{ category.title }}
                 </NuxtLink>
             </li>
         </ul>
@@ -15,21 +20,27 @@
 </template>
 
 <script>
+import gql from 'graphql-tag';
 export default {
     data() {
         return {
-            categories: [
-                'All',
-                'Commercial',
-                'Design',
-                'Nature',
-                'People',
-                'Photography',
-                'Tech',
-                'Travel',
-                'Uncategorized'
-            ]
+            category: ''
         };
+    },
+
+    apollo: {
+        category: {
+            prefetch: true,
+            query: gql`
+                query {
+                    category(slug: "home") {
+                        id
+                        title
+                        slug
+                    }
+                }
+            `
+        }
     }
 };
 </script>

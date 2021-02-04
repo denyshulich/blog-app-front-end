@@ -47,8 +47,18 @@ export default {
         // https://github.com/nuxt-community/device-module
         '@nuxtjs/device',
 
-        'bootstrap-vue/nuxt'
+        'bootstrap-vue/nuxt',
+        // https: //github.com/nuxt-community/apollo-module
+        '@nuxtjs/apollo'
     ],
+
+    apollo: {
+        clientConfigs: {
+            default: {
+                httpEndpoint: 'http://localhost:8080/graphql'
+            }
+        }
+    },
 
     bootstrapVue: {
         bootstrapCSS: false,
@@ -60,12 +70,15 @@ export default {
     dotenv: {
         /* module options */
     },
+
     styleResources: {
         scss: ['~assets/scss/*.scss']
     },
+
     svgSprite: {
         input: '~/assets/svg/'
     },
+
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {},
 
@@ -84,11 +97,18 @@ export default {
      */
     router: {
         extendRoutes(routes, resolve) {
-            routes.push({
-                path: '/',
+            routes.push(
+                {
+                    path: '/',
 
-                component: resolve(__dirname, 'pages/-index.vue')
-            });
+                    component: resolve(__dirname, 'pages/-index.vue')
+                },
+                {
+                    path: '/category/:slug',
+
+                    component: resolve(__dirname, 'pages/-category.vue')
+                }
+            );
         }
     }
 };

@@ -6,13 +6,13 @@
 import LazyYoutubeVideo from 'vue-lazy-youtube-video';
 import 'vue-lazy-youtube-video/dist/style.css';
 export default {
-    name: 'PostCardVidep',
+    name: 'PostCardVideo',
     components: {
         LazyYoutubeVideo
     },
     props: {
         video: {
-            type: [Array, String],
+            type: [String],
             required: true
         }
     },

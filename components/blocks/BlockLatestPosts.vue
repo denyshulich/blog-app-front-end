@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <BaseTitleWidget>Latest posts</BaseTitleWidget>
+        <BaseTitleWidget thema="white">Latest posts</BaseTitleWidget>
         <div v-for="post of posts" :key="post.img" class="post-preview-inner">
-            <PostPreview :post="post" />
+            <PostPreview thema="white" :post="post" />
         </div>
     </div>
 </template>
@@ -66,6 +66,18 @@ export default {
     @include mediaSize(desktop) {
         padding-bottom: get-vw(15px);
         margin-bottom: get-vw(25px);
+    }
+}
+
+.container {
+    padding-top: get-m-vw(50px);
+
+    @include mediaSize(tablet) {
+        padding-top: get-t-vw(100px);
+    }
+
+    @include mediaSize(desktop) {
+        padding-top: get-vw(20px);
     }
 }
 

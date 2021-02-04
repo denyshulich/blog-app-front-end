@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="post-tumb">
-            <img data-sizes="auto" :data-src="image || image[0]" class="lazyload tumb-image" />
+            <img data-sizes="auto" :data-src="image[0].src" class="lazyload tumb-image" />
             <div class="tumb-overlay">
                 <div class="overlay-link link-url">
                     <NuxtLink to="/" class="link-item">
@@ -10,10 +10,10 @@
                     <NuxtLink class="link-item-desktop" to="/" />
                 </div>
                 <div class="overlay-link link-loupe">
-                    <div v-img="{ src: `${image || image[0]}` }" class="link-item">
+                    <div v-img="{ src: `${image[0].src}` }" class="link-item">
                         <SvgIcon name="loupe" class="link-icon" />
                     </div>
-                    <div v-img="{ src: `${image || image[0]}` }" class="link-item-desktop" />
+                    <div v-img="{ src: `${image[0].src}` }" class="link-item-desktop" />
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@ export default {
     name: 'PostCardImage',
     props: {
         image: {
-            type: [String, Array],
+            type: [Array],
             required: true
         }
     }

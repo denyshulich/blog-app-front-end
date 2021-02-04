@@ -12,21 +12,16 @@ export default {
 
     async mounted() {
         await this.$loadScript('https://cdn.jsdelivr.net/npm/macy@2');
-
         this.initilazeMacy();
+    },
+
+    beforeDestroy() {
+        this.macy.remove();
     },
 
     methods: {
         initilazeMacy() {
             this.macy = window.Macy(this.options);
-
-            this.$root.$on('hook:update', () => {
-                this.macy.reInit();
-            });
-
-            this.$root.$once('hook:beforeDestroy', () => {
-                this.macy.remove();
-            });
         }
     },
 

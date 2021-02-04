@@ -1,8 +1,8 @@
 <template>
     <div class="bottom-container">
         <p class="categories">
-            <NuxtLink v-for="ctg in categories" :key="ctg" class="category" to="/">
-                {{ ctg.toUpperCase() }}
+            <NuxtLink v-for="ctg in categories" :key="ctg.slug" class="category" to="/">
+                {{ ctg.slug.toUpperCase() }}
             </NuxtLink>
         </p>
         <BaseButton class="comment" url="/">

@@ -2,39 +2,74 @@
     <b-collapse id="collapse-1">
         <div class="search">
             <div class="search-container">
-                <b-form @submit="onSubmit">
-                    <b-form-input
-                        id="site-search"
+                <form @submit.prevent="onSubmit">
+                    <input
                         v-model="search"
                         class="search-form"
                         name="search"
                         placeholder="Search Here.."
-                        required
+                        :class="{ error: getValid }"
+                        @input="$v.search.$touch()"
                     />
 
                     <button type="submit">
-                        <SvgIcon class="form-icon-loupe form-icon" name="loupe" />
+                        <SvgIcon
+                            class="form-icon-loupe form-icon"
+                            :class="{ error: getValid }"
+                            name="loupe"
+                        />
                     </button>
-                </b-form>
+                </form>
                 <button class="close-form">
                     <SvgIcon v-b-toggle.collapse-1 name="X" class="form-icon" />
                 </button>
             </div>
+            <p v-if="getValid" class="error-massage">
+                Sorry, field is required. Please, enter your search data!
+            </p>
         </div>
     </b-collapse>
 </template>
 
 <script>
+import Vue from 'vue';
+import Vuelidate from 'vuelidate';
+import { required } from 'vuelidate/lib/validators';
+Vue.use(Vuelidate);
+
 export default {
     data() {
         return {
-            search: ''
+            search: '',
+            valid: true
         };
     },
+    validations: {
+        search: {
+            required
+        }
+    },
+
+    computed: {
+        getValid() {
+            if (
+                (!this.$v.search.required && this.$v.search.$dirty) ||
+                (!this.$v.search.required && !this.valid)
+            ) {
+                return true;
+            }
+            return false;
+        }
+    },
+
     methods: {
-        onSubmit(event) {
-            event.preventDefault();
-            this.search = '';
+        onSubmit() {
+            if (!this.$v.$invalid) {
+                this.search = '';
+                this.valid = true;
+            } else {
+                this.valid = false;
+            }
         }
     }
 };
@@ -66,6 +101,10 @@ export default {
 
 .form-icon-loupe {
     color: $colorBlue;
+
+    &.error {
+        color: red;
+    }
 }
 
 .search {
@@ -74,9 +113,20 @@ export default {
     right: 0;
     z-index: 3;
     display: flex;
+    flex-direction: column;
     width: 100vw;
     height: get-vw(100px);
     background-color: white;
+}
+
+.error-massage {
+    position: absolute;
+    bottom: get-vw(15px);
+    left: get-vw(360px);
+    font-family: 'Relaway', sans-serif;
+    font-size: get-vw(16px);
+    font-weight: normal;
+    color: red;
 }
 
 .search-container {
@@ -91,5 +141,9 @@ export default {
     font-size: get-vw(25px);
     font-weight: normal;
     border: none;
+
+    &.error {
+        border-bottom: red solid 1px;
+    }
 }
 </style>

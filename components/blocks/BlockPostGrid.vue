@@ -3,12 +3,13 @@
         <div v-if="$device.isDesktopOrTablet">
             <MasonryGrid :options="macyOptions">
                 <div id="catalogMasonryGrid">
-                    <PostCard v-for="post of posts" :key="post.date" :posts="post" />
+                    <PostCard v-for="post of posts" :key="post.id" :post="post" />
                 </div>
             </MasonryGrid>
         </div>
-        <div v-else>
-            <PostCard v-for="post of posts" :key="post.date" :posts="post" />
+
+        <div v-else-if="$device.isMobile">
+            <PostCard v-for="post of posts" :key="post.id" :post="post" />
         </div>
     </div>
 </template>
@@ -33,7 +34,7 @@ export default {
             macyOptions: {
                 container: '#catalogMasonryGrid',
                 trueOrder: true,
-                waitForImages: true,
+                waitForImages: false,
                 margin: 10,
                 columns: 2,
                 breakAt: {

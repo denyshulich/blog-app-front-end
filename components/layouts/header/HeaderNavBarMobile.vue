@@ -20,7 +20,7 @@
                             <NuxtLink class="menu-link" to="/">{{ item }}</NuxtLink>
                         </li>
                     </ul>
-                    <BaseSearchForm />
+                    <BaseSearchForm thema="dark" />
                 </div>
                 <div class="social-links">
                     <div class="social-link">

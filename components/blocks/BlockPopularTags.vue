@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-        <BaseTitleWidget>Popular tags</BaseTitleWidget>
+    <div>
+        <BaseTitleWidget :thema="thema">{{ title }}</BaseTitleWidget>
         <div class="tags">
-            <NuxtLink v-for="tag of tags" :key="tag" class="tags-item" to="/">{{
+            <NuxtLink v-for="tag of tags" :key="tag" class="tags-item" :class="thema" to="/">{{
                 tag.toUpperCase()
             }}</NuxtLink>
         </div>
@@ -13,6 +13,16 @@
 import BaseTitleWidget from '../base/BaseTitleWidget';
 export default {
     components: { BaseTitleWidget },
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        thema: {
+            type: String,
+            required: true
+        }
+    },
     data() {
         return {
             tags: [
@@ -63,6 +73,15 @@ export default {
         margin: 0 get-vw(10px) get-vw(12px) 0;
         font-size: get-vw(13px);
         line-height: get-vw(32px);
+    }
+}
+
+.tags-item.dark {
+    color: white;
+    background-color: #3a3a3a;
+
+    &:hover {
+        background-color: $colorBlue;
     }
 }
 </style>
